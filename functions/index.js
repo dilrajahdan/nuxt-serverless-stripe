@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
-        price: 'ivory-company-456',
+        price: 'price_1JXF30AppzNLPbzgvbQnZr9y',
         quantity: 1,
       },
     ],
