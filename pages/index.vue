@@ -10,7 +10,7 @@
         <h5>$20.00</h5>
       </div>
     </div>
-    <form action="/create-checkout-session" method="POST">
+    <form action="/functions/index" method="POST">
       <button id="checkout-button" type="submit">Checkout</button>
     </form>
   </section>
