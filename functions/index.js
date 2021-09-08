@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
         quantity: 1,
       },
     ],
-    payment_method_types: ['card', 'bacs_debit'],
+    payment_method_types: ['card'],
     mode: 'payment',
     success_url: `${YOUR_DOMAIN}/success`,
     cancel_url: `${YOUR_DOMAIN}/cancel`,
