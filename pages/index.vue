@@ -10,18 +10,19 @@
         <h5>$20.00</h5>
       </div>
     </div>
-    <form action="/.netlify/functions/index" method="POST">
+    <!-- <form action="/.netlify/functions/index" method="POST">
+      need a credit card form!!!!
+
       <button id="checkout-button" type="submit">Checkout</button>
-    </form>
+    </form> -->
+    <div id="checkout"></div>
   </section>
 </template>
 
 <script>
-// import { Card, createToken } from 'vue-stripe-elements-plus'
-// import { stripeKey, stripeOptions } from './stripeConfig.json'
+import { loadStripe } from '@stripe/stripe-js'
 
 export default {
-  // components: { Card },
   data() {
     return {
       complete: false,
@@ -30,7 +31,34 @@ export default {
       },
     }
   },
+  async created() {
+    const stripe = await loadStripe('pk_test_mWF4dQC0ElTGLo2j8wV4beS7')
+    const elements = stripe.elements()
 
+    // const style = {
+    //   base: {
+    //     color: '#32325d',
+    //     fontFamily: 'Arial, sans-serif',
+    //     fontSmoothing: 'antialiased',
+    //     fontSize: '16px',
+    //     '::placeholder': {
+    //       color: '#32325d',
+    //     },
+    //   },
+    //   invalid: {
+    //     fontFamily: 'Arial, sans-serif',
+    //     color: '#fa755a',
+    //     iconColor: '#fa755a',
+    //   },
+    // }
+    const card = elements.create(
+      'card',
+      {}
+      // { style }
+    )
+    // Stripe injects an iframe into the DOM
+    card.mount('#checkout')
+  },
   // methods: {
   //   pay() {
   //     // createToken returns a Promise which resolves in a result object with

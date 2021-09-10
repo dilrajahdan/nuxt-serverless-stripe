@@ -17,5 +17,7 @@ exports.handler = async (event, context) => {
     success_url: `${YOUR_DOMAIN}/success`,
     cancel_url: `${YOUR_DOMAIN}/cancel`,
   })
-  context.redirect(303, session.url)
+  console.log(event, context)
+  // event.redirect(303, session.url)
+  return { statusCode: 303 }
 }
