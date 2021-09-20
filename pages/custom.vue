@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Prebuilt Checkout Page</h1>
+    <h1>Custom Checkout Flow</h1>
 
     <div class="product">
       <img
